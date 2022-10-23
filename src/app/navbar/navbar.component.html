@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <span>Supply Chain</span>
+  <div class="d-flex justify-content-between w-100">
+    <div [class.invisible]="!userData.isLoggedIn">
+      <button mat-button (click)="goToHome()">Home</button>
+      <button mat-button (click)="addStage()" *ngIf="userData.isAdmin">Add a Stage</button>
+    </div>
+    <button mat-button (click)="goToLogin()" *ngIf="!userData.isLoggedIn">Login</button>
+    <ng-container *ngIf="userData.isLoggedIn">
+      <div>
+        <span>
+          {{userData.username}}
+        </span>
+        <button mat-button (click)="logout()">Logout</button>
+      </div>
+    </ng-container>
+  </div>
+</mat-toolbar>
